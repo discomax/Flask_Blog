@@ -22,4 +22,10 @@ app.config['MAIL_USERNAME'] = 'mpatterson73@gmail.com'
 app.config['MAIL_PASSWORD'] = 'reagan7705'
 mail = Mail(app)
 
-from flaskblog import routes
+from flaskblog.users.routes import users  # user instance with the user blueprint
+from flaskblog.posts.routes import posts  # posts instance with the posts blueprint
+from flaskblog.main.routes import main  # main instance with the main blueprint
+
+app.register_blueprint(users)
+app.register_blueprint(posts)
+app.register_blueprint(main)
