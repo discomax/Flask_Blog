@@ -1,9 +1,10 @@
+import os
 
-class config:
-    SECRET_KEY = 'e3d415735ac112a2262ff99a9b3680c0'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
+class Config:
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = 
-    MAIL_PASSWORD = 
+    MAIL_USERNAME = os.environ.get('EMAIL_USER')
+    MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
